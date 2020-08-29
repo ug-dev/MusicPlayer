@@ -1,11 +1,11 @@
-package com.ugcodes.musicplayer;
+package com.ugcodes.musicplayer.model;
 
-public class UserPlaylistCard {
+public class FavouriteCard {
     private int ImageResource;
     private String Title;
     private String Subtitle;
 
-    public UserPlaylistCard(int imageResource, String title, String subtitle) {
+    public FavouriteCard(int imageResource, String title, String subtitle) {
         ImageResource = imageResource;
         Title = title;
         Subtitle = subtitle;

@@ -1,4 +1,4 @@
-package com.ugcodes.musicplayer;
+package com.ugcodes.musicplayer.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.ugcodes.musicplayer.R;
+import com.ugcodes.musicplayer.model.PlaylistCard;
 
 import java.util.ArrayList;
 

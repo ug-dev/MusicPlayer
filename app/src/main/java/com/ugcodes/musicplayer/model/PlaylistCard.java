@@ -1,14 +1,14 @@
-package com.ugcodes.musicplayer;
+package com.ugcodes.musicplayer.model;
 
-public class UniquelyYour {
+public class PlaylistCard {
     private int ImageResource;
     private String Title;
     private String Subtitle;
 
-    public UniquelyYour(int imageResource, String title, String subtitle) {
-        ImageResource = imageResource;
-        Title = title;
-        Subtitle = subtitle;
+    public PlaylistCard(int mImageResource, String mTitle, String mSubtitle) {
+        this.ImageResource = mImageResource;
+        this.Title = mTitle;
+        this.Subtitle = mSubtitle;
     }
 
     public int getImageResource() {
