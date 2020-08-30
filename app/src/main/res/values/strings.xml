@@ -14,4 +14,6 @@
     <string name="text_2">Playlist</string>
     <string name="song_title">Some Thing Just Like This</string>
     <string name="song_artist">The Chainsmokers, Coldplay</string>
+    <string name="search_title">Play what you like</string>
+    <string name="search_subtitle">Search for songs, artists and more.</string>
 </resources>
