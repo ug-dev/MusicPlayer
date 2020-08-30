@@ -1,5 +1,6 @@
 package com.ugcodes.musicplayer;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.ugcodes.musicplayer.adapter.PlaylistCardAdapter;
 import com.ugcodes.musicplayer.model.PlaylistCard;
@@ -47,6 +50,20 @@ public class FragmentHome extends Fragment {
 
         scrollView = view.findViewById(R.id.scrollView);
         settingsButton = view.findViewById(R.id.settings_button);
+
+        scrollView.getViewTreeObserver().addOnScrollChangedListener(
+                new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                int i = scrollView.getScrollY();
+
+                if (i >= 60 && settingsButton.getVisibility() == View.VISIBLE) {
+                    settingsButton.setVisibility(View.GONE);
+                } else if (i <= 60 && settingsButton.getVisibility() == View.GONE) {
+                    settingsButton.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         mRecyclerView = view.findViewById(R.id.recently_played_items);
         mRecyclerView.setHasFixedSize(true);

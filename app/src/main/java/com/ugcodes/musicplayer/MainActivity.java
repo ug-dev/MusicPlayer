@@ -8,6 +8,9 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,8 +18,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView song_title, song_artist;
+    private ImageView pauseButton, playButton, likeButton, likedButton;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,19 @@ public class MainActivity extends AppCompatActivity {
 
         song_title = findViewById(R.id.song_title);
         song_artist = findViewById(R.id.song_artist);
+
+        playButton = findViewById(R.id.play_button);
+        pauseButton = findViewById(R.id.pause_button);
+        likeButton = findViewById(R.id.like_button);
+        likedButton = findViewById(R.id.liked_button);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setProgress(30);
+
+        playButton.setOnClickListener(this);
+        pauseButton.setOnClickListener(this);
+        likedButton.setOnClickListener(this);
+        likeButton.setOnClickListener(this);
 
         song_title.setSelected(true);
         song_artist.setSelected(true);
@@ -63,4 +81,28 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     };
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.play_button:
+                toggleMiniPlayerButtons(playButton, pauseButton);
+                break;
+            case R.id.pause_button:
+                toggleMiniPlayerButtons(pauseButton, playButton);
+                break;
+            case R.id.like_button:
+                toggleMiniPlayerButtons(likeButton, likedButton);
+                break;
+            case R.id.liked_button:
+                toggleMiniPlayerButtons(likedButton, likeButton);
+                break;
+        }
+    }
+
+    private void toggleMiniPlayerButtons(ImageView button1,
+                                         ImageView button2) {
+        button1.setVisibility(View.GONE);
+        button2.setVisibility(View.VISIBLE);
+    }
 }

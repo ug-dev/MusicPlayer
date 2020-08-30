@@ -21,8 +21,7 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:progress="30" />
+            android:layout_alignParentBottom="true" />
 
         <ImageView
             android:id="@+id/mini_logo_image"
@@ -35,7 +34,7 @@
 
         <LinearLayout
             android:layout_centerVertical="true"
-            android:layout_marginStart="80dp"
+            android:layout_marginStart="75dp"
             android:layout_marginEnd="90dp"
             android:orientation="vertical"
             android:layout_height="wrap_content"
@@ -71,8 +70,8 @@
 
         </LinearLayout>
 
-        <TableRow
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
@@ -82,8 +81,8 @@
                 android:id="@+id/like_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="20dp"
+                android:layout_centerVertical="true"
+                android:visibility="gone"
                 android:src="@drawable/ic_like_icon"
                 app:tint="@color/settingsColor" />
 
@@ -91,11 +90,30 @@
                 android:id="@+id/pause_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:visibility="gone"
                 android:src="@drawable/ic_pause_icon"
                 app:tint="@color/settingsColor" />
 
-        </TableRow>
+            <ImageView
+                android:id="@+id/liked_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_liked_icon"
+                app:tint="@color/settingsColor" />
+
+            <ImageView
+                android:id="@+id/play_button"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_play_icon"
+                app:tint="@color/settingsColor" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
