@@ -57,9 +57,9 @@ public class FragmentHome extends Fragment {
             public void onScrollChanged() {
                 int i = scrollView.getScrollY();
 
-                if (i >= 60 && settingsButton.getVisibility() == View.VISIBLE) {
+                if (i >= 80 && settingsButton.getVisibility() == View.VISIBLE) {
                     settingsButton.setVisibility(View.GONE);
-                } else if (i <= 60 && settingsButton.getVisibility() == View.GONE) {
+                } else if (i <= 80 && settingsButton.getVisibility() == View.GONE) {
                     settingsButton.setVisibility(View.VISIBLE);
                 }
             }

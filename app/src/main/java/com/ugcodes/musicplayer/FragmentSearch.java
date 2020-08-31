@@ -1,5 +1,7 @@
 package com.ugcodes.musicplayer;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,58 +9,91 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentSearch#newInstance} factory method to
- * create an instance of this fragment.
- */
+import org.w3c.dom.Text;
+
 public class FragmentSearch extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FragmentSearch() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentSearch.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentSearch newInstance(String param1, String param2) {
-        FragmentSearch fragment = new FragmentSearch();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private RelativeLayout search_layout;
+    private TextView searchTitle;
+    private EditText searchEditText;
+    private ImageView backButton, cancelButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
+        search_layout = view.findViewById(R.id.search_layout);
+//        searchTitle = view.findViewById(R.id.searchBox_title);
+//        searchEditText = view.findViewById(R.id.search_editText);
+//        backButton = view.findViewById(R.id.search_back_button);
+//        cancelButton = view.findViewById(R.id.search_cancel_button);
+
+        search_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeSearchBox();
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                defaultSearchBox();
+                Toast.makeText(getActivity(), "hello", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchEditText.getText().clear();
+            }
+        });
+
+        return view;
+    }
+
+    private void defaultSearchBox() {
+        searchTitle.setVisibility(View.VISIBLE);
+        searchEditText.setVisibility(View.GONE);
+        backButton.setVisibility(View.GONE);
+        cancelButton.setVisibility(View.GONE);
+
+        ObjectAnimator animX = ObjectAnimator
+                .ofFloat(search_layout, "scaleX", 1f)
+                .setDuration(200);
+
+        ObjectAnimator animY = ObjectAnimator
+                .ofFloat(search_layout, "scaleY", 1f)
+                .setDuration(200);
+
+        AnimatorSet animSet = new AnimatorSet();
+        animSet.playTogether(animX, animY);
+        animSet.start();
+    }
+
+    private void changeSearchBox() {
+        searchTitle.setVisibility(View.GONE);
+        searchEditText.setVisibility(View.VISIBLE);
+        backButton.setVisibility(View.VISIBLE);
+        cancelButton.setVisibility(View.VISIBLE);
+
+        ObjectAnimator animX = ObjectAnimator
+                .ofFloat(search_layout, "scaleX", 1.2f)
+                .setDuration(200);
+
+        ObjectAnimator animY = ObjectAnimator
+                .ofFloat(search_layout, "scaleY", 1.2f)
+                .setDuration(200);
+
+        AnimatorSet animSet = new AnimatorSet();
+        animSet.playTogether(animX, animY);
+        animSet.start();
     }
 }
