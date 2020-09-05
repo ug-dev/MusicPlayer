@@ -16,4 +16,9 @@
     <string name="song_artist">The Chainsmokers, Coldplay</string>
     <string name="search_title">Play what you like</string>
     <string name="search_subtitle">Search for songs, artists and more.</string>
+    <string name="stream_info_text">This feature is not available yet!!</string>
+    <string name="playlist">Playlists</string>
+    <string name="songs">Songs</string>
+    <string name="album">Albums</string>
+    <string name="artist">Artists</string>
 </resources>

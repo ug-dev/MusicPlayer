@@ -7,58 +7,55 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentLibrary#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class FragmentLibrary extends Fragment {
+import java.util.Objects;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FragmentLibrary() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentLibrary.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentLibrary newInstance(String param1, String param2) {
-        FragmentLibrary fragment = new FragmentLibrary();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+public class FragmentLibrary extends Fragment implements View.OnClickListener {
+    private RelativeLayout layout_1, layout_2, layout_3, layout_4;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_library, container, false);
+        View view = inflater.inflate(R.layout.fragment_library, container, false);
+
+        layout_1 = view.findViewById(R.id.playlist_layout);
+        layout_2 = view.findViewById(R.id.album_layout);
+        layout_3 = view.findViewById(R.id.song_layout);
+        layout_4 = view.findViewById(R.id.artist_layout);
+
+        layout_1.setOnClickListener(this);
+        layout_2.setOnClickListener(this);
+        layout_3.setOnClickListener(this);
+        layout_4.setOnClickListener(this);
+
+        return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.playlist_layout:
+                Objects.requireNonNull(getFragmentManager())
+                        .beginTransaction().replace(R.id.fragment_layout,
+                        new playlists_layout()).commit();
+                break;
+            case R.id.album_layout:
+                Objects.requireNonNull(getFragmentManager())
+                        .beginTransaction().replace(R.id.fragment_layout,
+                        new albums_layout()).commit();
+                break;
+            case R.id.song_layout:
+                Objects.requireNonNull(getFragmentManager())
+                        .beginTransaction().replace(R.id.fragment_layout,
+                        new songs_layout()).commit();
+                break;
+            case R.id.artist_layout:
+                Objects.requireNonNull(getFragmentManager())
+                        .beginTransaction().replace(R.id.fragment_layout,
+                        new artists_layout()).commit();
+                break;
+        }
     }
 }

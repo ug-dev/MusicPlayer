@@ -19,6 +19,7 @@ import com.ugcodes.musicplayer.adapter.PlaylistCardAdapter;
 import com.ugcodes.musicplayer.model.PlaylistCard;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class FragmentHome extends Fragment {
     private RecyclerView mRecyclerView, mRecyclerView_Favourite,
@@ -48,22 +49,33 @@ public class FragmentHome extends Fragment {
         list2.add(new PlaylistCard(R.drawable.ic_repeat_image,
                 "On Repeat", "Playlist"));
 
-        scrollView = view.findViewById(R.id.scrollView);
+//        scrollView = view.findViewById(R.id.scrollView);
         settingsButton = view.findViewById(R.id.settings_button);
 
-        scrollView.getViewTreeObserver().addOnScrollChangedListener(
-                new ViewTreeObserver.OnScrollChangedListener() {
+        settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onScrollChanged() {
-                int i = scrollView.getScrollY();
+            public void onClick(View view) {
+//                Objects.requireNonNull(getFragmentManager())
+//                        .beginTransaction().replace(R.id.fragment_layout,
+//                        new settings_layout()).commit();
 
-                if (i >= 80 && settingsButton.getVisibility() == View.VISIBLE) {
-                    settingsButton.setVisibility(View.GONE);
-                } else if (i <= 80 && settingsButton.getVisibility() == View.GONE) {
-                    settingsButton.setVisibility(View.VISIBLE);
-                }
+                Toast.makeText(getActivity(), "hello", Toast.LENGTH_SHORT).show();
             }
         });
+
+//        scrollView.getViewTreeObserver().addOnScrollChangedListener(
+//                new ViewTreeObserver.OnScrollChangedListener() {
+//            @Override
+//            public void onScrollChanged() {
+//                int i = scrollView.getScrollY();
+//
+//                if (i >= 80 && settingsButton.getVisibility() == View.VISIBLE) {
+//                    settingsButton.setVisibility(View.GONE);
+//                } else if (i <= 80 && settingsButton.getVisibility() == View.GONE) {
+//                    settingsButton.setVisibility(View.VISIBLE);
+//                }
+//            }
+//        });
 
         mRecyclerView = view.findViewById(R.id.recently_played_items);
         mRecyclerView.setHasFixedSize(true);

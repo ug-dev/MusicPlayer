@@ -15,7 +15,7 @@
             android:id="@+id/settings_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
             android:src="@drawable/ic_settings"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,12 +34,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/ic_home_background"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="100dp"
                     android:layout_marginStart="20dp"
                     android:fontFamily="@font/acme"
                     android:text="@string/recently_played"
@@ -114,6 +115,7 @@
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
+
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
