@@ -10,7 +10,7 @@
     <color name="primaryBackground">#121212</color>
     <color name="settingsColor">#FFF</color>
     <color name="bottomNavBackground">#282828</color>
-    <color name="bottomNavIcon">#EEE</color>
+    <color name="bottomNavIcon">#FFF</color>
     <color name="bottomNavIcon_2">#9e9e9e</color>
     <color name="search_background">#424242</color>
 

@@ -7,116 +7,111 @@
     android:background="@color/primaryBackground"
     tools:context=".FragmentHome">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/settings_button"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
-            android:src="@drawable/ic_settings"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/settingsColor" />
+            android:background="@drawable/ic_home_background"
+            android:orientation="vertical">
 
-        <ScrollView
-            android:id="@+id/scrollView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/settings_button"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="15dp"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:src="@drawable/ic_settings"
+                app:tint="@color/settingsColor" />
 
-            <LinearLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/acme"
+                android:text="@string/recently_played"
+                android:textColor="@color/text_color_1"
+                android:textSize="24sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recently_played_items"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                android:background="@drawable/ic_home_background"
-                android:orientation="vertical">
+                android:layout_marginTop="15dp"
+                android:clipToPadding="false"
+                android:paddingStart="20dp"
+                android:paddingEnd="0dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:fontFamily="@font/acme"
-                    android:text="@string/recently_played"
-                    android:textColor="@color/text_color_1"
-                    android:textSize="24sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/acme"
+                android:text="@string/your_favourite"
+                android:textColor="@color/text_color_1"
+                android:textSize="24sp" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recently_played_items"
-                    android:layout_marginTop="15dp"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="0dp"
-                    android:clipToPadding="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/your_favourite_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:clipToPadding="false"
+                android:paddingStart="20dp"
+                android:paddingEnd="0dp" />
 
-                <TextView
-                    android:layout_marginTop="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/acme"
-                    android:layout_marginStart="20dp"
-                    android:text="@string/your_favourite"
-                    android:textColor="@color/text_color_1"
-                    android:textSize="24sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/acme"
+                android:text="@string/uniquely_yours"
+                android:textColor="@color/text_color_1"
+                android:textSize="24sp" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/your_favourite_items"
-                    android:layout_marginTop="15dp"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="0dp"
-                    android:clipToPadding="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/uniquely_your_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:clipToPadding="false"
+                android:paddingStart="20dp"
+                android:paddingEnd="0dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/acme"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginStart="20dp"
-                    android:text="@string/uniquely_yours"
-                    android:textColor="@color/text_color_1"
-                    android:textSize="24sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/acme"
+                android:text="@string/your_playlists"
+                android:textColor="@color/text_color_1"
+                android:textSize="24sp" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/uniquely_your_items"
-                    android:layout_marginTop="15dp"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="0dp"
-                    android:clipToPadding="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/your_playlist_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="30dp"
+                android:clipToPadding="false"
+                android:paddingStart="20dp"
+                android:paddingEnd="0dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/acme"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginStart="20dp"
-                    android:text="@string/your_playlists"
-                    android:textColor="@color/text_color_1"
-                    android:textSize="24sp" />
+        </LinearLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/your_playlist_items"
-                    android:layout_marginTop="15dp"
-                    android:paddingStart="20dp"
-                    android:layout_marginBottom="30dp"
-                    android:paddingEnd="0dp"
-                    android:clipToPadding="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-        </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </FrameLayout>
