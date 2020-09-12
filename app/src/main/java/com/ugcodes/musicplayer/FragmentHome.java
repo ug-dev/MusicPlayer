@@ -1,6 +1,5 @@
 package com.ugcodes.musicplayer;
 
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Toast;
@@ -49,33 +47,17 @@ public class FragmentHome extends Fragment {
         list2.add(new PlaylistCard(R.drawable.ic_repeat_image,
                 "On Repeat", "Playlist"));
 
-//        scrollView = view.findViewById(R.id.scrollView);
+        scrollView = view.findViewById(R.id.scrollView);
         settingsButton = view.findViewById(R.id.settings_button);
 
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Objects.requireNonNull(getFragmentManager())
-//                        .beginTransaction().replace(R.id.fragment_layout,
-//                        new settings_layout()).commit();
-
-                Toast.makeText(getActivity(), "hello", Toast.LENGTH_SHORT).show();
+                Objects.requireNonNull(getFragmentManager())
+                        .beginTransaction().replace(R.id.fragment_layout,
+                        new settings_layout()).commit();
             }
         });
-
-//        scrollView.getViewTreeObserver().addOnScrollChangedListener(
-//                new ViewTreeObserver.OnScrollChangedListener() {
-//            @Override
-//            public void onScrollChanged() {
-//                int i = scrollView.getScrollY();
-//
-//                if (i >= 80 && settingsButton.getVisibility() == View.VISIBLE) {
-//                    settingsButton.setVisibility(View.GONE);
-//                } else if (i <= 80 && settingsButton.getVisibility() == View.GONE) {
-//                    settingsButton.setVisibility(View.VISIBLE);
-//                }
-//            }
-//        });
 
         mRecyclerView = view.findViewById(R.id.recently_played_items);
         mRecyclerView.setHasFixedSize(true);
