@@ -22,4 +22,23 @@
     <string name="album">Albums</string>
     <string name="artist">Artists</string>
     <string name="settings">Settings</string>
+
+    <string name="auto_play_after_call">Auto Play After Call</string>
+    <string name="auto_play_after_call_2">If enabled, song will resume after call.</string>
+    <string name="crossfade">Crossfade</string>
+    <string name="crossfade_2">Allows you to crossfade between songs.</string>
+    <string name="off">Off</string>
+    <string name="seekBar_Seconds">12s</string>
+    <string name="autoplay">Autoplay</string>
+    <string name="autoplay_2">Keep on listening to similar tracks.</string>
+    <string name="clear_history">Clear History</string>
+    <string name="clear_history_2">Clear all recent search history.</string>
+    <string name="equaliser">Equaliser</string>
+    <string name="equaliser_2">Adjust audio settings.</string>
+    <string name="invite_friend">Invite Friend</string>
+    <string name="invite_friend_2">Share this app with your friends.</string>
+    <string name="version">Version</string>
+    <string name="version_2">1.0.0</string>
+    <string name="about_us">About us</string>
+    <string name="about_us_2">If you want to know about us.</string>
 </resources>
