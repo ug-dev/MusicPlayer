@@ -6,9 +6,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Toast;
@@ -49,6 +52,28 @@ public class FragmentHome extends Fragment {
 
         scrollView = view.findViewById(R.id.scrollView);
         settingsButton = view.findViewById(R.id.settings_button);
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        Objects.requireNonNull(getActivity())
+                .getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        float height = displayMetrics.heightPixels;
+        final float actualHeight = (height * 8) / 100;
+
+        scrollView.getViewTreeObserver()
+                .addOnScrollChangedListener(new ViewTreeObserver
+                        .OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                //Hiding settings button
+                settingsButton.setAlpha(1-(scrollView.getScrollY()/actualHeight));
+
+                if (scrollView.getScrollY() >= actualHeight) {
+                    settingsButton.setVisibility(View.GONE);
+                } else {
+                    settingsButton.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override

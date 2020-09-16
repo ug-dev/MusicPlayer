@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/items_list_1_image"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_playlist_icon" />
+
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_marginStart="70dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/items_list_1_title"
+            android:textColor="@color/white"
+            android:fontFamily="@font/acme"
+            android:textSize="16sp"
+            android:text="UG's Tracks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/items_list_1_subtitle"
+            android:textColor="@color/text_color_3"
+            android:fontFamily="@font/acme"
+            android:textSize="14sp"
+            android:text="84 Songs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -6,331 +6,340 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".settings_layout">
 
-    <ScrollView
-        android:background="@color/primaryBackground"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="50dp"
+            android:background="@color/top_bar">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/top_bar">
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:fontFamily="@font/acme"
+                android:text="@string/settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-                <TextView
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/acme"
-                    android:text="@string/settings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/settings_back_button"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_search_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tint="@color/text_color_1" />
 
-                <ImageView
-                    android:id="@+id/settings_back_button"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="5dp"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_search_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:tint="@color/text_color_1" />
+        </RelativeLayout>
 
-            </RelativeLayout>
+        <ScrollView
+            android:background="@color/primaryBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <RelativeLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:paddingTop="5dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="5dp"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/settings_1"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/acme"
-                    android:text="@string/auto_play_after_call"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/settings_1"
-                    android:text="@string/auto_play_after_call_2"
-                    android:fontFamily="@font/acme"
-                    android:textColor="@color/text_color_4"
-                    android:textSize="13sp" />
-
-                <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentEnd="true"
-                    android:theme="@style/MySwitch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:paddingTop="5dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/settings_2"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/acme"
-                    android:text="@string/crossfade"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/sub_settings_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/settings_2"
-                    android:text="@string/crossfade_2"
-                    android:fontFamily="@font/acme"
-                    android:textColor="@color/text_color_4"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/sub_settings_2"
-                    android:text="@string/off"
+                <RelativeLayout
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/acme"
-                    android:textColor="@color/text_color_4"
-                    android:textSize="13sp" />
-
-                <SeekBar
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="25dp"
-                    android:thumbTint="@color/green_color"
-                    android:progressTint="@color/green_color"
-                    android:layout_below="@+id/sub_settings_2"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_below="@+id/sub_settings_2"
-                    android:text="@string/seekBar_Seconds"
-                    android:layout_marginTop="9dp"
-                    android:fontFamily="@font/acme"
-                    android:textColor="@color/text_color_4"
-                    android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/settings_1"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/acme"
+                        android:text="@string/auto_play_after_call"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/settings_1"
+                        android:text="@string/auto_play_after_call_2"
+                        android:fontFamily="@font/acme"
+                        android:textColor="@color/text_color_4"
+                        android:textSize="14sp" />
 
-            <RelativeLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:paddingTop="5dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        app:thumbTint="@color/text_color_1"
+                        android:theme="@style/MySwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-                <TextView
-                    android:id="@+id/settings_3"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/acme"
-                    android:text="@string/autoplay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                </RelativeLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/settings_3"
-                    android:text="@string/autoplay_2"
-                    android:fontFamily="@font/acme"
-                    android:textColor="@color/text_color_4"
-                    android:textSize="13sp" />
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentEnd="true"
-                    android:theme="@style/MySwitch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/settings_2"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/acme"
+                        android:text="@string/crossfade"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/sub_settings_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/settings_2"
+                        android:text="@string/crossfade_2"
+                        android:fontFamily="@font/acme"
+                        android:textColor="@color/text_color_4"
+                        android:textSize="14sp" />
 
-            <RelativeLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:paddingTop="5dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/sub_settings_2"
+                        android:text="@string/off"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/acme"
+                        android:textColor="@color/text_color_4"
+                        android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/settings_4"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/acme"
-                    android:text="@string/clear_history"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    <SeekBar
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="25dp"
+                        android:thumbTint="@color/green_color"
+                        android:progressTint="@color/green_color"
+                        android:layout_below="@+id/sub_settings_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/settings_4"
-                    android:text="@string/clear_history_2"
-                    android:fontFamily="@font/acme"
-                    android:textColor="@color/text_color_4"
-                    android:textSize="13sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/sub_settings_2"
+                        android:text="@string/seekBar_Seconds"
+                        android:layout_marginTop="9dp"
+                        android:fontFamily="@font/acme"
+                        android:textColor="@color/text_color_4"
+                        android:textSize="14sp" />
 
-            </RelativeLayout>
+                </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:paddingTop="5dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/settings_5"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/acme"
-                    android:text="@string/equaliser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/settings_3"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/acme"
+                        android:text="@string/autoplay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/settings_5"
-                    android:text="@string/equaliser_2"
-                    android:fontFamily="@font/acme"
-                    android:textColor="@color/text_color_4"
-                    android:textSize="13sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/settings_3"
+                        android:text="@string/autoplay_2"
+                        android:fontFamily="@font/acme"
+                        android:textColor="@color/text_color_4"
+                        android:textSize="14sp" />
 
-            </RelativeLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        app:thumbTint="@color/text_color_1"
+                        android:theme="@style/MySwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-            <RelativeLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:paddingTop="5dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/settings_6"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/acme"
-                    android:text="@string/invite_friend"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/settings_6"
-                    android:text="@string/invite_friend_2"
-                    android:fontFamily="@font/acme"
-                    android:textColor="@color/text_color_4"
-                    android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/settings_4"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/acme"
+                        android:text="@string/clear_history"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/settings_4"
+                        android:text="@string/clear_history_2"
+                        android:fontFamily="@font/acme"
+                        android:textColor="@color/text_color_4"
+                        android:textSize="14sp" />
 
-            <RelativeLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:paddingTop="5dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/settings_7"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/acme"
-                    android:text="@string/version"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/settings_7"
-                    android:text="@string/version_2"
-                    android:fontFamily="@font/acme"
-                    android:textColor="@color/text_color_4"
-                    android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/settings_5"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/acme"
+                        android:text="@string/equaliser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/settings_5"
+                        android:text="@string/equaliser_2"
+                        android:fontFamily="@font/acme"
+                        android:textColor="@color/text_color_4"
+                        android:textSize="14sp" />
 
-            <RelativeLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:paddingTop="5dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/settings_8"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/acme"
-                    android:text="@string/about_us"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/settings_8"
-                    android:text="@string/about_us_2"
-                    android:fontFamily="@font/acme"
-                    android:textColor="@color/text_color_4"
-                    android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/settings_6"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/acme"
+                        android:text="@string/invite_friend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/settings_6"
+                        android:text="@string/invite_friend_2"
+                        android:fontFamily="@font/acme"
+                        android:textColor="@color/text_color_4"
+                        android:textSize="14sp" />
 
-        </LinearLayout>
+                </RelativeLayout>
 
-    </ScrollView>
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/settings_7"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/acme"
+                        android:text="@string/version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/settings_7"
+                        android:text="@string/version_2"
+                        android:fontFamily="@font/acme"
+                        android:textColor="@color/text_color_4"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/settings_8"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/acme"
+                        android:text="@string/about_us"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/settings_8"
+                        android:text="@string/about_us_2"
+                        android:fontFamily="@font/acme"
+                        android:textColor="@color/text_color_4"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
 
 </FrameLayout>

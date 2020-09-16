@@ -41,4 +41,5 @@
     <string name="version_2">1.0.0</string>
     <string name="about_us">About us</string>
     <string name="about_us_2">If you want to know about us.</string>
+    <string name="create_playlist">Create playlist</string>
 </resources>

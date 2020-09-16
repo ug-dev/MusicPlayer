@@ -9,7 +9,6 @@
 
     <style name="MySwitch">
         <item name="colorControlActivated">@color/green_color</item>
-        <item name="trackColorInactive">@color/text_color_4</item>
     </style>
 
 </resources>
