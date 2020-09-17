@@ -4,13 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.graphics.Color;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView song_title, song_artist;
     private ImageView pauseButton, playButton, likeButton, likedButton;
     private ProgressBar progressBar;
+    private RelativeLayout miniPlayerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pauseButton = findViewById(R.id.pause_button);
         likeButton = findViewById(R.id.like_button);
         likedButton = findViewById(R.id.liked_button);
+        
+        miniPlayerLayout = findViewById(R.id.miniPlayer_layout);
 
         progressBar = findViewById(R.id.progressBar);
         progressBar.setProgress(30);
@@ -49,6 +52,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+        
+        miniPlayerLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, PlayerScreen.class));
+            }
+        });
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout,
                 new FragmentHome()).commit();
