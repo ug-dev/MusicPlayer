@@ -33,8 +33,13 @@ public class PlayerScreen extends AppCompatActivity {
     private CardView posterBackground;
     private ConstraintLayout layout;
 
+    private Palette.Swatch vibrantSwatch;
+    private Palette.Swatch lightVibrantSwatch;
     private Palette.Swatch darkVibrantSwatch;
     private Palette.Swatch mutedSwatch;
+    private Palette.Swatch lightMutedSwatch;
+    private Palette.Swatch darkMutedSwatch;
+    int currentNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +67,7 @@ public class PlayerScreen extends AppCompatActivity {
 
         ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams)
                 posterBackground.getLayoutParams();
-        layoutParams.height = (w * 85) / 100;
+        layoutParams.height = (w * 90) / 100;
         layoutParams.width = (w * 90) / 100;
         posterBackground.setLayoutParams(layoutParams);
 
@@ -73,8 +78,12 @@ public class PlayerScreen extends AppCompatActivity {
             @Override
             public void onGenerated(@Nullable Palette palette) {
                 if (palette != null) {
+                    vibrantSwatch = palette.getVibrantSwatch();
+                    lightVibrantSwatch = palette.getLightVibrantSwatch();
                     darkVibrantSwatch = palette.getDarkVibrantSwatch();
                     mutedSwatch = palette.getMutedSwatch();
+                    lightMutedSwatch = palette.getLightMutedSwatch();
+                    darkMutedSwatch = palette.getDarkMutedSwatch();
                 }
                 generateBackgroundGradient();
             }
@@ -83,7 +92,7 @@ public class PlayerScreen extends AppCompatActivity {
         downPlayerScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(PlayerScreen.this, "Down", Toast.LENGTH_SHORT).show();
+                onBackPressed();
             }
         });
 
@@ -146,5 +155,6 @@ public class PlayerScreen extends AppCompatActivity {
     private void togglePlayerButton(ImageView image1, ImageView image2) {
         image1.setVisibility(View.VISIBLE);
         image2.setVisibility(View.GONE);
+        generateBackgroundGradient();
     }
 }

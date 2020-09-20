@@ -18,7 +18,7 @@
             android:layout_centerVertical="true"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:layout_marginStart="60dp"
+            android:layout_centerHorizontal="true"
             android:fontFamily="@font/acme"
             android:text="@string/artist"
             android:layout_width="wrap_content"

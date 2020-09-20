@@ -16,6 +16,15 @@ import java.util.ArrayList;
 
 public class PlaylistCardAdapter extends RecyclerView.Adapter<PlaylistCardAdapter.PlaylistCardViewHolder> {
     private ArrayList<PlaylistCard> mPlaylistCard;
+    private OnPlaylistClickListener mListener;
+
+    public interface OnPlaylistClickListener {
+        void onPlaylistClick(int position);
+    }
+
+    public void setOnPlaylistClickListener(OnPlaylistClickListener listener) {
+        mListener = listener;
+    }
 
     public PlaylistCardAdapter(ArrayList<PlaylistCard> playlistCard) {
         mPlaylistCard = playlistCard;
@@ -27,7 +36,7 @@ public class PlaylistCardAdapter extends RecyclerView.Adapter<PlaylistCardAdapte
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.playlist_card, parent, false);
 
-        return new PlaylistCardViewHolder(v);
+        return new PlaylistCardViewHolder(v, mListener);
     }
 
     @Override
@@ -49,12 +58,24 @@ public class PlaylistCardAdapter extends RecyclerView.Adapter<PlaylistCardAdapte
         public TextView mTextView1;
         public TextView mTextView2;
 
-        public PlaylistCardViewHolder(@NonNull View itemView) {
+        public PlaylistCardViewHolder(@NonNull View itemView, final OnPlaylistClickListener listener) {
             super(itemView);
 
             mImageView = itemView.findViewById(R.id.playlist_card_image);
             mTextView1 = itemView.findViewById(R.id.playlist_card_title);
             mTextView2 = itemView.findViewById(R.id.playlist_card_subtitle);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onPlaylistClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }
