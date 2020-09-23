@@ -57,7 +57,7 @@ public class ViewPlaylist extends Fragment {
     private RecyclerView.Adapter adapter;
     private RelativeLayout topBar, topSectionBackground;
     private ImageView topSectionBackgroundImage;
-    private LinearLayout buttonSection;
+    private ConstraintLayout buttonSection;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -122,9 +122,6 @@ public class ViewPlaylist extends Fragment {
                 topSectionBackground.getLayoutParams();
         layoutParams.height = (height * 50) / 100;
         topSectionBackground.setLayoutParams(layoutParams);
-
-        shuffleButton.setWidth((width * 49) / 100);
-        playButton.setWidth((width * 49) / 100);
 
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams)
                 playlistImage.getLayoutParams();

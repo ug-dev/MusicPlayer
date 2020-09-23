@@ -109,38 +109,46 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_below="@id/view_album_top_section"
                 android:id="@+id/view_album_button_section"
-                android:layout_marginTop="20dp"
                 android:background="@color/background3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <Button
                     android:id="@+id/view_album_shuffle_button"
+                    android:layout_width="0dp"
+                    app:layout_constraintWidth_percent="0.48"
+                    android:layout_height="37dp"
                     android:background="@drawable/white_button"
-                    android:text="@string/shuffle"
                     android:fontFamily="@font/acme"
-                    android:textSize="16sp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
+                    android:text="@string/shuffle"
                     android:textColor="@color/text_color_5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="37dp" />
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
                     android:id="@+id/view_album_play_button"
-                    android:textColor="@color/white"
-                    android:text="@string/play"
-                    android:fontFamily="@font/acme"
-                    android:textSize="16sp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_width="0dp"
+                    app:layout_constraintWidth_percent="0.48"
+                    android:layout_height="37dp"
                     android:background="@drawable/black_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="37dp" />
+                    android:fontFamily="@font/acme"
+                    android:text="@string/play"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/view_album_child_scroll"

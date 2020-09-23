@@ -101,15 +101,6 @@ public class FragmentHome extends Fragment {
                 LinearLayoutManager.HORIZONTAL, false));
         mRecyclerView.setAdapter(mAdapter);
 
-        mAdapter.setOnPlaylistClickListener(new PlaylistCardAdapter.OnPlaylistClickListener() {
-            @Override
-            public void onPlaylistClick(int position) {
-                getParentFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_layout,
-                        new ViewPlaylist()).commit();
-            }
-        });
-
         mRecyclerView_Favourite.setLayoutManager(
                 new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false));
@@ -135,6 +126,15 @@ public class FragmentHome extends Fragment {
                 new LinearLayoutManager(getContext(),
                         LinearLayoutManager.HORIZONTAL, false));
         mRecyclerView_UniquelyYour.setAdapter(mAdapter);
+
+        mAdapter.setOnPlaylistClickListener(new PlaylistCardAdapter.OnPlaylistClickListener() {
+            @Override
+            public void onPlaylistClick(int position) {
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_layout,
+                                new ViewPlaylist()).commit();
+            }
+        });
 
         return view;
     }
