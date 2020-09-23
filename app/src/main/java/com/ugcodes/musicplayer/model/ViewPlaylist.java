@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ugcodes.musicplayer.FragmentHome;
 import com.ugcodes.musicplayer.MyScrollView;
 import com.ugcodes.musicplayer.R;
 import com.ugcodes.musicplayer.adapter.PlaylistItemAdapter;
@@ -37,7 +38,7 @@ import java.util.Objects;
 public class ViewPlaylist extends Fragment {
     private static final String TAG = "hello";
     private LinearLayout topSection;
-    private ImageView playlistImage;
+    private ImageView playlistImage, backButton;
     private TextView playlistTitle;
     private TextView playlistTitleText, playlistSubtitleText;
     private Button playButton, shuffleButton;
@@ -63,6 +64,9 @@ public class ViewPlaylist extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_view_playlist, container, false);
 
+        final int height = Resources.getSystem().getDisplayMetrics().heightPixels;
+        int width = Resources.getSystem().getDisplayMetrics().widthPixels;
+
         topSection = view.findViewById(R.id.view_playlist_top_section);
         playlistImage = view.findViewById(R.id.view_playlist_playlistImage);
         parentScroll = view.findViewById(R.id.view_playlist_parent_scroll);
@@ -75,46 +79,15 @@ public class ViewPlaylist extends Fragment {
         buttonSection = view.findViewById(R.id.view_playlist_button_section);
         playlistTitleText = view.findViewById(R.id.view_playlist_title_text);
         playlistSubtitleText = view.findViewById(R.id.view_playlist_subtitle_text);
+        backButton = view.findViewById(R.id.view_playlist_back_button);
+        recyclerView = view.findViewById(R.id.view_playlist_child_scroll);
 
         ArrayList<PlaylistItem> items = new ArrayList<>();
         items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
                 "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
-//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-//                "Tones And I", true));
+        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "One Dance",
+                "Drake", true));
 
-        recyclerView = view.findViewById(R.id.view_playlist_child_scroll);
         recyclerView.setHasFixedSize(true);
         adapter = new PlaylistItemAdapter(items);
         recyclerView.setNestedScrollingEnabled(false);
@@ -123,9 +96,6 @@ public class ViewPlaylist extends Fragment {
                 LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(adapter);
         recyclerView.setNestedScrollingEnabled(false);
-
-        final int height = Resources.getSystem().getDisplayMetrics().heightPixels;
-        int width = Resources.getSystem().getDisplayMetrics().widthPixels;
 
         parentScroll.setPadding(0,
                 ((height * 50) / 100 ) - generatePixels(50f), 0, 0);
@@ -182,6 +152,15 @@ public class ViewPlaylist extends Fragment {
                     darkMutedSwatch = palette.getDarkMutedSwatch();
                 }
                 generateBackgroundGradient();
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_layout,
+                                new FragmentHome()).commit();
             }
         });
 

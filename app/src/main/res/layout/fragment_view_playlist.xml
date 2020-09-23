@@ -24,7 +24,6 @@
         <RelativeLayout
             android:id="@+id/view_playlist_top_bar"
             android:layout_width="match_parent"
-            android:background="#555"
             android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
