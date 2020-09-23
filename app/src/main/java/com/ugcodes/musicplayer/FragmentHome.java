@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.ugcodes.musicplayer.adapter.PlaylistCardAdapter;
 import com.ugcodes.musicplayer.model.PlaylistCard;
+import com.ugcodes.musicplayer.model.ViewPlaylist;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -106,7 +107,9 @@ public class FragmentHome extends Fragment {
         mAdapter.setOnPlaylistClickListener(new PlaylistCardAdapter.OnPlaylistClickListener() {
             @Override
             public void onPlaylistClick(int position) {
-                Toast.makeText(getActivity(), ""+position, Toast.LENGTH_SHORT).show();
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_layout,
+                        new ViewPlaylist()).commit();
             }
         });
 
@@ -114,13 +117,6 @@ public class FragmentHome extends Fragment {
                 new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false));
         mRecyclerView_Favourite.setAdapter(mAdapter);
-
-        mAdapter.setOnPlaylistClickListener(new PlaylistCardAdapter.OnPlaylistClickListener() {
-            @Override
-            public void onPlaylistClick(int position) {
-                Toast.makeText(getActivity(), ""+position, Toast.LENGTH_SHORT).show();
-            }
-        });
 
         mRecyclerView_UserPlaylist.setLayoutManager(
                 new LinearLayoutManager(getContext(),
@@ -133,13 +129,6 @@ public class FragmentHome extends Fragment {
                 new LinearLayoutManager(getContext(),
                         LinearLayoutManager.HORIZONTAL, false));
         mRecyclerView_UniquelyYour.setAdapter(mAdapter);
-
-        mAdapter.setOnPlaylistClickListener(new PlaylistCardAdapter.OnPlaylistClickListener() {
-            @Override
-            public void onPlaylistClick(int position) {
-                Toast.makeText(getActivity(), ""+position, Toast.LENGTH_SHORT).show();
-            }
-        });
 
         return view;
     }

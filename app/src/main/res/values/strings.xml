@@ -42,4 +42,6 @@
     <string name="about_us">About us</string>
     <string name="about_us_2">If you want to know about us.</string>
     <string name="create_playlist">Create playlist</string>
+    <string name="shuffle">Shuffle</string>
+    <string name="play">Play</string>
 </resources>
