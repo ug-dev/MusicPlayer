@@ -24,6 +24,7 @@
         <RelativeLayout
             android:id="@+id/view_playlist_top_bar"
             android:layout_width="match_parent"
+            android:background="#555"
             android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -128,6 +129,7 @@
 
             <LinearLayout
                 android:id="@+id/view_playlist_button_section"
+                android:background="@color/background3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -158,9 +160,9 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/view_playlist_child_scroll"
+                android:layout_below="@id/view_playlist_button_section"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/view_playlist_button_section"
                 android:layout_marginTop="15dp"
                 android:overScrollMode="never" />
 

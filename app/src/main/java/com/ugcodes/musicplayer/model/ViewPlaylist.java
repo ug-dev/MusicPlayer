@@ -81,38 +81,38 @@ public class ViewPlaylist extends Fragment {
                 "Tones And I", true));
         items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
                 "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
-        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
-                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
+//        items.add(new PlaylistItem(R.drawable.ic_playlist_icon, "Dance Monkey",
+//                "Tones And I", true));
 
         recyclerView = view.findViewById(R.id.view_playlist_child_scroll);
         recyclerView.setHasFixedSize(true);
@@ -138,10 +138,10 @@ public class ViewPlaylist extends Fragment {
             @Override
             public void onScrollChanged() {
                 if (parentScroll.getScrollY()<=myHeight){
-                    playlistTitle.setAlpha((float) (parentScroll.getScrollY()/myHeight));
+                    playlistTitle.setAlpha(parentScroll.getScrollY()/myHeight);
                     playlistImage.setScaleX((float) (1-(0.3*parentScroll.getScrollY()/myHeight)));
                     playlistImage.setScaleY((float) (1-(0.3*parentScroll.getScrollY()/myHeight)));
-                    playlistImage.setAlpha((float) (1-parentScroll.getScrollY()/myHeight));
+                    playlistImage.setAlpha(1-parentScroll.getScrollY()/myHeight);
                     topSectionBackgroundImage.setTranslationY(-parentScroll.getScrollY());
                 }
             }
@@ -160,6 +160,12 @@ public class ViewPlaylist extends Fragment {
         layoutParams2.height = (width * 50) / 100;
         layoutParams2.width = (width * 50) / 100;
         playlistImage.setLayoutParams(layoutParams2);
+
+
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams)
+                recyclerView.getLayoutParams();
+        layoutParams3.height = height - generatePixels(212);
+        recyclerView.setLayoutParams(layoutParams3);
 
         //Setting Gradient Background
         Bitmap bitmap = ((BitmapDrawable) playlistImage.getDrawable()).getBitmap();
