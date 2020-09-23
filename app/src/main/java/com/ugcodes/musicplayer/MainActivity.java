@@ -12,10 +12,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.ugcodes.musicplayer.model.ViewPlaylist;
 
 import java.util.Objects;
 

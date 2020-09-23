@@ -7,18 +7,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.ugcodes.musicplayer.adapter.PlaylistCardAdapter;
 import com.ugcodes.musicplayer.model.PlaylistCard;
-import com.ugcodes.musicplayer.model.ViewPlaylist;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -117,6 +114,15 @@ public class FragmentHome extends Fragment {
                 new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false));
         mRecyclerView_Favourite.setAdapter(mAdapter);
+
+        mAdapter.setOnPlaylistClickListener(new PlaylistCardAdapter.OnPlaylistClickListener() {
+            @Override
+            public void onPlaylistClick(int position) {
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_layout,
+                                new ViewAlbum()).commit();
+            }
+        });
 
         mRecyclerView_UserPlaylist.setLayoutManager(
                 new LinearLayoutManager(getContext(),

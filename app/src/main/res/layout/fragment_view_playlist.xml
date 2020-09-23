@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background3"
-    tools:context=".model.ViewPlaylist">
+    tools:context=".ViewPlaylist">
 
     <RelativeLayout
         android:id="@+id/top_section_background"

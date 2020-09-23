@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background3"
+    tools:context=".ViewAlbum">
+
+    <RelativeLayout
+        android:id="@+id/view_album_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/top_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/view_album_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/acme"
+            android:text="Aashiqui 2"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/view_album_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_search_left"
+            app:tint="@color/text_color_1" />
+
+        <ImageView
+            android:id="@+id/view_album_menu_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_pl_screen_menu"
+            app:tint="@color/text_color_1" />
+
+    </RelativeLayout>
+
+    <com.ugcodes.musicplayer.MyScrollView
+        android:id="@+id/view_album_parent_scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/view_album_top_section_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/view_album_top_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/view_album_playlistImage"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/temp3" />
+
+                <TextView
+                    android:id="@+id/view_album_title_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/acme"
+                    android:text="Aashiqui 2"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/view_album_subtitle_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/acme"
+                    android:text="Arijit Singh, Ankit Tiwari, KK"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_color_3"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_below="@id/view_album_top_section"
+                android:id="@+id/view_album_button_section"
+                android:layout_marginTop="20dp"
+                android:background="@color/background3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/view_album_shuffle_button"
+                    android:background="@drawable/white_button"
+                    android:text="@string/shuffle"
+                    android:fontFamily="@font/acme"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/text_color_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp" />
+
+                <Button
+                    android:id="@+id/view_album_play_button"
+                    android:textColor="@color/white"
+                    android:text="@string/play"
+                    android:fontFamily="@font/acme"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/black_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/view_album_child_scroll"
+                android:layout_below="@id/view_album_button_section"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:overScrollMode="never" />
+
+        </RelativeLayout>
+
+    </com.ugcodes.musicplayer.MyScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
