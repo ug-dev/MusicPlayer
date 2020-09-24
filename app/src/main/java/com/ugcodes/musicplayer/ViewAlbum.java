@@ -44,7 +44,7 @@ public class ViewAlbum extends Fragment {
     private Palette.Swatch darkMutedSwatch;
     int currentNumber;
 
-    private MyScrollView parentScroll;
+    private ScrollView parentScroll;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RelativeLayout topBar, topSectionBackground;

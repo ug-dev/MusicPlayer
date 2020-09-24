@@ -6,7 +6,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
@@ -15,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,11 +23,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.ugcodes.musicplayer.FragmentHome;
-import com.ugcodes.musicplayer.MyScrollView;
-import com.ugcodes.musicplayer.R;
 import com.ugcodes.musicplayer.adapter.PlaylistItemAdapter;
 import com.ugcodes.musicplayer.model.PlaylistItem;
 
@@ -52,7 +48,7 @@ public class ViewPlaylist extends Fragment {
     private Palette.Swatch darkMutedSwatch;
     int currentNumber;
 
-    private MyScrollView parentScroll;
+    private ScrollView parentScroll;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RelativeLayout topBar, topSectionBackground;
