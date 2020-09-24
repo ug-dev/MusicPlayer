@@ -2,6 +2,7 @@ package com.ugcodes.musicplayer;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -20,6 +22,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.util.Objects;
 
 public class FragmentSearch extends Fragment {
     private RelativeLayout search_layout, search_back_layout;
@@ -82,6 +86,7 @@ public class FragmentSearch extends Fragment {
     }
 
     private void defaultSearchBox() {
+        hideSoftKeyboard(searchEditText);
         search_layout.setVisibility(View.VISIBLE);
         search_back_layout.setVisibility(View.GONE);
 
@@ -106,7 +111,24 @@ public class FragmentSearch extends Fragment {
         }, 200);
     }
 
+    private void hideSoftKeyboard(View v) {
+        InputMethodManager imm = (InputMethodManager)
+                Objects.requireNonNull(getActivity())
+                        .getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+    }
+
+    private void showSoftKeyboard(View v) {
+        if (v.requestFocus()) {
+            InputMethodManager imm =(InputMethodManager)
+                    Objects.requireNonNull(getActivity())
+                            .getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(v,InputMethodManager.SHOW_IMPLICIT);
+        }
+    }
+
     private void changeSearchBox() {
+        showSoftKeyboard(searchEditText);
         searchTitle.setVisibility(View.GONE);
 
         ObjectAnimator animX = ObjectAnimator

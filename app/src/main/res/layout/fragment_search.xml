@@ -81,6 +81,8 @@
                 android:textColor="@color/text_color_1"
                 android:textSize="16sp"
                 android:singleLine="true"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
                 android:background="@color/search_background"
                 android:layout_centerVertical="true"
                 android:layout_width="match_parent"
@@ -93,7 +95,7 @@
                 android:padding="10dp"
                 android:src="@drawable/ic_search_left"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 app:tint="@color/text_color_1" />
 
             <ImageView
@@ -105,7 +107,7 @@
                 android:visibility="gone"
                 android:src="@drawable/ic_search_cancel"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 app:tint="@color/text_color_1" />
 
         </RelativeLayout>

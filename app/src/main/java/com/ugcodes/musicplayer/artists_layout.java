@@ -19,7 +19,7 @@ import java.util.Objects;
 
 public class artists_layout extends Fragment {
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private ItemsListAdapter_1 mAdapter;
     private ImageView BackButton;
 
     @Override
@@ -30,23 +30,23 @@ public class artists_layout extends Fragment {
 
         ArrayList<ItemsPlaylist> items = new ArrayList<>();
         items.add(new ItemsPlaylist(R.drawable.ic_artists_icon,
-                "Dhvani Bhanushali", "14 Songs"));
+                "Arijit Singh", "14 Songs"));
         items.add(new ItemsPlaylist(R.drawable.ic_artists_icon,
-                "Dhvani Bhanushali", "14 Songs"));
+                "Arijit Singh", "14 Songs"));
         items.add(new ItemsPlaylist(R.drawable.ic_artists_icon,
-                "Dhvani Bhanushali", "14 Songs"));
+                "Arijit Singh", "14 Songs"));
         items.add(new ItemsPlaylist(R.drawable.ic_artists_icon,
-                "Dhvani Bhanushali", "14 Songs"));
+                "Arijit Singh", "14 Songs"));
         items.add(new ItemsPlaylist(R.drawable.ic_artists_icon,
-                "Dhvani Bhanushali", "14 Songs"));
+                "Arijit Singh", "14 Songs"));
         items.add(new ItemsPlaylist(R.drawable.ic_artists_icon,
-                "Dhvani Bhanushali", "14 Songs"));
+                "Arijit Singh", "14 Songs"));
         items.add(new ItemsPlaylist(R.drawable.ic_artists_icon,
-                "Dhvani Bhanushali", "14 Songs"));
+                "Arijit Singh", "14 Songs"));
         items.add(new ItemsPlaylist(R.drawable.ic_artists_icon,
-                "Dhvani Bhanushali", "14 Songs"));
+                "Arijit Singh", "14 Songs"));
         items.add(new ItemsPlaylist(R.drawable.ic_artists_icon,
-                "Dhvani Bhanushali", "14 Songs"));
+                "Arijit Singh", "14 Songs"));
 
         mRecyclerView = view.findViewById(R.id.items_list_1_recyclerView_artist);
         BackButton = view.findViewById(R.id.artist_layout_back_button);
@@ -54,7 +54,7 @@ public class artists_layout extends Fragment {
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Objects.requireNonNull(getFragmentManager())
+                Objects.requireNonNull(getParentFragmentManager())
                         .beginTransaction().replace(R.id.fragment_layout,
                         new FragmentLibrary()).commit();
             }
@@ -65,6 +65,15 @@ public class artists_layout extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setAdapter(mAdapter);
+
+        mAdapter.setOnArtistClickListener(new ItemsListAdapter_1.OnArtistClickListener() {
+            @Override
+            public void onArtistClick(int position) {
+                Objects.requireNonNull(getParentFragmentManager())
+                        .beginTransaction().replace(R.id.fragment_layout,
+                        new ViewArtist()).commit();
+            }
+        });
 
         return view;
     }

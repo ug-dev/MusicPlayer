@@ -1,6 +1,5 @@
 package com.ugcodes.musicplayer.adapter;
 
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,20 +16,41 @@ import java.util.ArrayList;
 
 public class ItemsListAdapter_1 extends RecyclerView.Adapter<ItemsListAdapter_1
         .ItemsListAdapter_1ViewHolder> {
+    private OnArtistClickListener mListener;
 
     ArrayList<ItemsPlaylist> mList;
+    public interface OnArtistClickListener {
+        void onArtistClick(int position);
+    }
+
+    public void setOnArtistClickListener(OnArtistClickListener listener) {
+        mListener = listener;
+    }
 
     public static class ItemsListAdapter_1ViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
         public TextView mTextView1;
         public TextView mTextView2;
 
-        public ItemsListAdapter_1ViewHolder(@NonNull View itemView) {
+        public ItemsListAdapter_1ViewHolder(@NonNull View itemView, final OnArtistClickListener listener) {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.items_list_1_image);
             mTextView1 = itemView.findViewById(R.id.items_list_1_title);
             mTextView2 = itemView.findViewById(R.id.items_list_1_subtitle);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onArtistClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -44,7 +64,7 @@ public class ItemsListAdapter_1 extends RecyclerView.Adapter<ItemsListAdapter_1
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.items_list_1,
                 parent, false);
 
-        return new ItemsListAdapter_1ViewHolder(v);
+        return new ItemsListAdapter_1ViewHolder(v, mListener);
     }
 
     @Override

@@ -44,4 +44,7 @@
     <string name="create_playlist">Create playlist</string>
     <string name="shuffle">Shuffle</string>
     <string name="play">Play</string>
+    <string name="create_playlist_info">Give your playlist a name.</string>
+    <string name="cancel">Cancel</string>
+    <string name="create">Create</string>
 </resources>

@@ -10,8 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:windowSoftInputMode="stateVisible"
+            android:screenOrientation="portrait"
+            android:name=".CreatePlaylist">
+
+        </activity>
+        <activity
             android:name=".PlayerScreen"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
