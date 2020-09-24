@@ -80,6 +80,7 @@
                         android:layout_centerVertical="true"
                         android:layout_alignParentEnd="true"
                         android:theme="@style/MySwitch"
+                        android:checked="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -128,6 +129,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="25dp"
+                        android:progress="40"
                         android:progressBackgroundTint="@color/text_color_3"
                         android:thumbTint="@color/green_color"
                         android:progressTint="@color/green_color"
@@ -180,6 +182,7 @@
                         android:layout_centerVertical="true"
                         android:layout_alignParentEnd="true"
                         android:theme="@style/MySwitch"
+                        android:checked="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
