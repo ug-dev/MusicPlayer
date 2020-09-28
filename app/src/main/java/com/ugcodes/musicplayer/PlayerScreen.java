@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.palette.graphics.Palette;
 
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -22,6 +23,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.ugcodes.musicplayer.model.PlayerScreenBottomSheet;
 
 import java.util.Objects;
 
@@ -61,9 +64,7 @@ public class PlayerScreen extends AppCompatActivity {
         songTitle.setSelected(true);
         songArtist.setSelected(true);
 
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        int w = displayMetrics.widthPixels;
+        int w = Resources.getSystem().getDisplayMetrics().widthPixels;
 
         ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams)
                 posterBackground.getLayoutParams();
@@ -127,7 +128,8 @@ public class PlayerScreen extends AppCompatActivity {
         menuPlayerScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(PlayerScreen.this, "Menu", Toast.LENGTH_SHORT).show();
+                PlayerScreenBottomSheet bottomSheet = new PlayerScreenBottomSheet();
+                bottomSheet.show(getSupportFragmentManager(), "PlayerScreenBottomSheet");
             }
         });
     }

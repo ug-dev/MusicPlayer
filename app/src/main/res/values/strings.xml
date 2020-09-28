@@ -47,4 +47,18 @@
     <string name="create_playlist_info">Give your playlist a name.</string>
     <string name="cancel">Cancel</string>
     <string name="create">Create</string>
+    <string name="like">Like</string>
+    <string name="liked">Liked</string>
+    <string name="add_to_playlist">Add to playlist</string>
+    <string name="ringtone">Set as ringtone</string>
+    <string name="view_album">View album</string>
+    <string name="view_artist">View artist</string>
+    <string name="sleep">Sleep timer</string>
+    <string name="stop_music">Stop music in</string>
+    <string name="minutes_1">5 minutes</string>
+    <string name="minutes_2">10 minutes</string>
+    <string name="minutes_3">30 minutes</string>
+    <string name="minutes_4">45 minutes</string>
+    <string name="minutes_5">1 hour</string>
+    <string name="minutes_6">End of track</string>
 </resources>

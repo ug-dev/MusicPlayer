@@ -42,9 +42,8 @@ public class FragmentHome extends Fragment {
         list.add(new PlaylistCard(R.drawable.ic_playlist_icon, "UG's Tracks", "Playlist"));
 
         ArrayList<PlaylistCard> list2 = new ArrayList<>();
-        list2.add(new PlaylistCard(R.drawable.ic_liked_image, "Liked Songs", "Playlist"));
-        list2.add(new PlaylistCard(R.drawable.ic_shuffle_image,
-                "Shuffled Songs", "Playlist"));
+        list2.add(new PlaylistCard(R.drawable.ic_liked_image,
+                "Liked Songs", "Playlist"));
         list2.add(new PlaylistCard(R.drawable.ic_repeat_image,
                 "On Repeat", "Playlist"));
 
