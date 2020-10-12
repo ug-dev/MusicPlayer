@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
-                android:src="@drawable/temp" />
+                android:src="@drawable/temp4" />
 
         </androidx.cardview.widget.CardView>
 
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/acme"
                 android:ellipsize="end"
-                android:text="Something Just Like This"
+                android:text="UG's Tracks"
                 android:textColor="@color/text_color_1"
                 android:textSize="16sp" />
 
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/acme"
                 android:ellipsize="end"
-                android:text="The Chainsmokers, Coldplay"
+                android:text="70 Songs"
                 android:textColor="@color/text_color_6"
                 android:textSize="16sp" />
 
@@ -84,7 +84,7 @@
                 android:layout_centerVertical="true"
                 android:scaleType="fitXY"
                 android:layout_marginStart="20dp"
-                android:src="@drawable/ic_like_icon"
+                android:src="@drawable/ic_remove_playlist_icon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 app:tint="@color/text_color_4" />
@@ -97,7 +97,7 @@
                 android:layout_marginStart="60dp"
                 android:ellipsize="end"
                 android:layout_marginEnd="15dp"
-                android:text="@string/like"
+                android:text="@string/rename_playlist"
                 android:textColor="@color/text_color_1"
                 android:textSize="18sp" />
 
@@ -163,7 +163,7 @@
                 android:layout_centerVertical="true"
                 android:scaleType="fitXY"
                 android:layout_marginStart="20dp"
-                android:src="@drawable/ic_playlist_add_icon"
+                android:src="@drawable/ic_delete_playlist"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 app:tint="@color/text_color_4" />
@@ -176,13 +176,14 @@
                 android:layout_marginStart="60dp"
                 android:ellipsize="end"
                 android:layout_marginEnd="15dp"
-                android:text="@string/add_to_playlist"
+                android:text="@string/delete_paylist"
                 android:textColor="@color/text_color_1"
                 android:textSize="18sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/sort_playlist"
             android:layout_width="match_parent"
             android:layout_height="45dp">
 
@@ -190,7 +191,7 @@
                 android:layout_centerVertical="true"
                 android:scaleType="fitXY"
                 android:layout_marginStart="20dp"
-                android:src="@drawable/ic_ringtone_icon"
+                android:src="@drawable/ic_sort_playlist"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 app:tint="@color/text_color_4" />
@@ -203,89 +204,7 @@
                 android:layout_marginStart="60dp"
                 android:ellipsize="end"
                 android:layout_marginEnd="15dp"
-                android:text="@string/ringtone"
-                android:textColor="@color/text_color_1"
-                android:textSize="18sp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="45dp">
-
-            <ImageView
-                android:layout_centerVertical="true"
-                android:scaleType="fitXY"
-                android:layout_marginStart="20dp"
-                android:src="@drawable/ic_album_icon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                app:tint="@color/text_color_4" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/acme"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="60dp"
-                android:ellipsize="end"
-                android:layout_marginEnd="15dp"
-                android:text="@string/view_album"
-                android:textColor="@color/text_color_1"
-                android:textSize="18sp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="45dp">
-
-            <ImageView
-                android:layout_centerVertical="true"
-                android:scaleType="fitXY"
-                android:layout_marginStart="20dp"
-                android:src="@drawable/ic_artist"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                app:tint="@color/text_color_4" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/acme"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="60dp"
-                android:ellipsize="end"
-                android:layout_marginEnd="15dp"
-                android:text="@string/view_artist"
-                android:textColor="@color/text_color_1"
-                android:textSize="18sp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/player_screen_sleep_timer"
-            android:layout_width="match_parent"
-            android:layout_height="45dp">
-
-            <ImageView
-                android:layout_centerVertical="true"
-                android:scaleType="fitXY"
-                android:layout_marginStart="20dp"
-                android:src="@drawable/ic_sleep_icon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                app:tint="@color/text_color_4" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/acme"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="60dp"
-                android:ellipsize="end"
-                android:layout_marginEnd="15dp"
-                android:text="@string/sleep"
+                android:text="@string/sort_playlist"
                 android:textColor="@color/text_color_1"
                 android:textSize="18sp" />
 

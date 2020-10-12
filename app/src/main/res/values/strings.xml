@@ -61,4 +61,14 @@
     <string name="minutes_4">45 minutes</string>
     <string name="minutes_5">1 hour</string>
     <string name="minutes_6">End of track</string>
+    <string name="rename_playlist">Rename playlist</string>
+    <string name="delete_paylist">Delete playlist</string>
+    <string name="sort_playlist">Sort playlist</string>
+    <string name="sort_by">Sort by</string>
+    <string name="title">Title</string>
+    <string name="recently_added">Recently added</string>
+    <string name="shuffle_all">Shuffle all</string>
+    <string name="like_all">Like all songs</string>
+    <string name="play_next">Play next</string>
+    <string name="liked_all">Liked all songs</string>
 </resources>

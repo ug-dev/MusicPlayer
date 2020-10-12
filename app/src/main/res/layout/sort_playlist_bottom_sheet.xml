@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:background="@color/bottom_menu_color"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/acme"
+        android:text="@string/sort_by"
+        android:textColor="@color/text_color_1"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="15dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+        <RelativeLayout
+            android:id="@+id/playlist_sort_title"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="50dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/acme"
+                android:text="@string/title"
+                android:textColor="@color/text_color_1"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/playlist_sort_title_tick"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_sort_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:tint="@color/green_color" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/playlist_sort_recently_added"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="50dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/acme"
+                android:text="@string/recently_added"
+                android:textColor="@color/text_color_1"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/playlist_sort_recently_added_tick"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:visibility="gone"
+                android:src="@drawable/ic_sort_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:tint="@color/green_color" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/playlist_sort_artist"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="50dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/acme"
+                android:text="@string/artist"
+                android:textColor="@color/text_color_1"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/playlist_sort_artist_tick"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_sort_icon"
+                android:visibility="gone"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:tint="@color/green_color" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/playlist_sort_album"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="50dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/acme"
+                android:text="@string/album"
+                android:textColor="@color/text_color_1"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/playlist_sort_album_tick"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_sort_icon"
+                android:visibility="gone"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:tint="@color/green_color" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,12 +6,15 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -46,10 +49,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         likedButton.setOnClickListener(this);
         likeButton.setOnClickListener(this);
 
+//        miniPlayerLayout.getViewTreeObserver()
+//                .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+//            @Override
+//            public void onGlobalLayout() {
+//                Toast.makeText(MainActivity.this, ""+miniPlayerLayout.getHeight(),
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
         song_title.setSelected(true);
         song_artist.setSelected(true);
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        final BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         
         miniPlayerLayout.setOnClickListener(new View.OnClickListener() {

@@ -29,6 +29,7 @@ public class PlayerScreenBottomSheet extends BottomSheetDialogFragment {
         sleepTimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dismiss();
                 PlayerScreenSleepBottomSheet bottomSheet2 = new PlayerScreenSleepBottomSheet();
                 bottomSheet2.show(getParentFragmentManager(), "PlayerScreenSleepBottomSheet");
             }

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,8 +26,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ugcodes.musicplayer.adapter.PlaylistItemAdapter;
+import com.ugcodes.musicplayer.model.PlaylistBottomSheet;
 import com.ugcodes.musicplayer.model.PlaylistItem;
 
 import java.util.ArrayList;
@@ -35,7 +38,7 @@ import java.util.Objects;
 public class ViewPlaylist extends Fragment {
     private static final String TAG = "hello";
     private LinearLayout topSection;
-    private ImageView playlistImage, backButton;
+    private ImageView playlistImage, backButton, menuButton;
     private TextView playlistTitle;
     private TextView playlistTitleText, playlistSubtitleText;
     private Button playButton, shuffleButton;
@@ -77,6 +80,7 @@ public class ViewPlaylist extends Fragment {
         playlistTitleText = view.findViewById(R.id.view_playlist_title_text);
         playlistSubtitleText = view.findViewById(R.id.view_playlist_subtitle_text);
         backButton = view.findViewById(R.id.view_playlist_back_button);
+        menuButton = view.findViewById(R.id.view_playlist_menu_button);
         recyclerView = view.findViewById(R.id.view_playlist_child_scroll);
 
         ArrayList<PlaylistItem> items = new ArrayList<>();
@@ -125,11 +129,6 @@ public class ViewPlaylist extends Fragment {
         layoutParams2.width = (width * 50) / 100;
         playlistImage.setLayoutParams(layoutParams2);
 
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams)
-                recyclerView.getLayoutParams();
-        layoutParams3.height = height - generatePixels(212);
-        recyclerView.setLayoutParams(layoutParams3);
-
         //Setting Gradient Background
         Bitmap bitmap = ((BitmapDrawable) playlistImage.getDrawable()).getBitmap();
 
@@ -157,32 +156,19 @@ public class ViewPlaylist extends Fragment {
             }
         });
 
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PlaylistBottomSheet bottomSheet = new PlaylistBottomSheet();
+                bottomSheet.show(getParentFragmentManager(), "PlaylistBottomSheet");
+            }
+        });
+
         return view;
     }
 
     private int generatePixels(float dip) {
-        Resources r = getResources();
-        float px = TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                dip,
-                r.getDisplayMetrics()
-        );
-
-        return (int) px;
-    }
-
-    private int getNavigationBarHeight() {
-        DisplayMetrics metrics = new DisplayMetrics();
-        Objects.requireNonNull(getActivity()).getWindowManager()
-                .getDefaultDisplay().getMetrics(metrics);
-        int usableHeight = metrics.heightPixels;
-        getActivity().getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
-        int realHeight = metrics.heightPixels;
-
-        if (realHeight > usableHeight)
-            return realHeight - usableHeight;
-        else
-            return 0;
+        return (int) (dip * Resources.getSystem().getDisplayMetrics().density);
     }
 
     private void generateBackgroundGradient() {

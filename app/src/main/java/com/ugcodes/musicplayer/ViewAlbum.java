@@ -25,13 +25,14 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.ugcodes.musicplayer.adapter.PlaylistItemAdapter;
+import com.ugcodes.musicplayer.model.AlbumBottomSheet;
 import com.ugcodes.musicplayer.model.PlaylistItem;
 
 import java.util.ArrayList;
 
 public class ViewAlbum extends Fragment {
     private LinearLayout topSection;
-    private ImageView playlistImage, backButton;
+    private ImageView playlistImage, backButton, menuButton;
     private TextView playlistTitle;
     private TextView playlistTitleText, playlistSubtitleText;
     private Button playButton, shuffleButton;
@@ -72,6 +73,7 @@ public class ViewAlbum extends Fragment {
         playlistTitleText = view.findViewById(R.id.view_album_title_text);
         playlistSubtitleText = view.findViewById(R.id.view_album_subtitle_text);
         backButton = view.findViewById(R.id.view_album_back_button);
+        menuButton = view.findViewById(R.id.view_album_menu_button);
         recyclerView = view.findViewById(R.id.view_album_child_scroll);
 
         ArrayList<PlaylistItem> items = new ArrayList<>();
@@ -100,11 +102,6 @@ public class ViewAlbum extends Fragment {
         layoutParams2.width = (width * 50) / 100;
         playlistImage.setLayoutParams(layoutParams2);
 
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams)
-                recyclerView.getLayoutParams();
-        layoutParams3.height = height - generatePixels(212);
-        recyclerView.setLayoutParams(layoutParams3);
-
         //Setting Gradient Background
         Bitmap bitmap = ((BitmapDrawable) playlistImage.getDrawable()).getBitmap();
 
@@ -129,6 +126,14 @@ public class ViewAlbum extends Fragment {
                 getParentFragmentManager().beginTransaction()
                         .replace(R.id.fragment_layout,
                                 new FragmentHome()).commit();
+            }
+        });
+
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlbumBottomSheet bottomSheet = new AlbumBottomSheet();
+                bottomSheet.show(getParentFragmentManager(), "AlbumBottomSheet");
             }
         });
 
